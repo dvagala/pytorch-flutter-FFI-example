@@ -1,4 +1,4 @@
-# PyTorch / LibTorch in Flutter through FFI
+# PyTorch / LibTorch in Flutter through C++ FFI
 
 FFI is faster the method channels, and I couldn't find a good example for this so I've made one.
 
