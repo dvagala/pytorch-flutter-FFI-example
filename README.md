@@ -2,9 +2,9 @@
 
 FFI is faster the method channels, and I couldn't find a good example for this so I've made one.
 
-The app is running as it is on Android and iOS. No further dependency needs to be installed. Tested on Flutter 3.3.8
+This example app is working as it is on Android and iOS. No further dependency needs to be installed. Tested on Flutter 3.3.8
 
-### Steps I took:
+### Steps I took when making this example app:
 1. Create FFI plugin from this [guide](https://docs.flutter.dev/development/platform-integration/android/c-interop)
 2. Android: copied `native_pytorch/libtorch-android` and setup `native_pytorch/CMakeLists.txt`
 3. iOS: setup `native_pytorch/ios/native_pytorch.podspec` (note that `s.static_framework = true` is mandatory)
