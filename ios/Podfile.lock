@@ -1,21 +1,39 @@
 PODS:
   - Flutter (1.0.0)
+  - LibTorch (1.13.0.1):
+    - LibTorch/Core (= 1.13.0.1)
+  - LibTorch/Core (1.13.0.1):
+    - LibTorch/Torch
+  - LibTorch/Torch (1.13.0.1)
   - native_pytorch (0.0.1):
     - Flutter
+    - LibTorch (~> 1.13.0.1)
+  - path_provider_foundation (0.0.1):
+    - Flutter
+    - FlutterMacOS
 
 DEPENDENCIES:
   - Flutter (from `Flutter`)
   - native_pytorch (from `.symlinks/plugins/native_pytorch/ios`)
+  - path_provider_foundation (from `.symlinks/plugins/path_provider_foundation/ios`)
+
+SPEC REPOS:
+  trunk:
+    - LibTorch
 
 EXTERNAL SOURCES:
   Flutter:
     :path: Flutter
   native_pytorch:
     :path: ".symlinks/plugins/native_pytorch/ios"
+  path_provider_foundation:
+    :path: ".symlinks/plugins/path_provider_foundation/ios"
 
 SPEC CHECKSUMS:
   Flutter: f04841e97a9d0b0a8025694d0796dd46242b2854
-  native_pytorch: 91cecb52bf42926dec2a2c6e9d67295fa0427761
+  LibTorch: 8abfa5fc9d146230b31065a29b0502e1104956ea
+  native_pytorch: c6a143c8c0a8a47f5a72426ac2677f99b5e1cc9b
+  path_provider_foundation: c68054786f1b4f3343858c1e1d0caaded73f0be9
 
 PODFILE CHECKSUM: ef19549a9bc3046e7bb7d2fab4d021637c0c58a3
 
