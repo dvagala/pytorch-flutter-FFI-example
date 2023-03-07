@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:pytorch_flutter_ffi_example/const.dart';
 import 'package:pytorch_flutter_ffi_example/ml_service.dart';
 import 'package:pytorch_flutter_ffi_example/native_communicator_service.dart';
+import 'package:pytorch_flutter_ffi_example/utils.dart';
 
 void main() {
   runApp(const MyApp());
@@ -29,7 +31,7 @@ class HomeScreen extends StatefulWidget {
 }
 
 class _HomeScreenState extends State<HomeScreen> {
-  List<double> result = [];
+  List<double> outputList = [];
   int? inferenceTimeMs;
   bool loading = false;
 
@@ -44,12 +46,15 @@ class _HomeScreenState extends State<HomeScreen> {
 
     nativeCommunicatorService.loadMlModel(mLService.mlModelFile.path);
 
-    // input tensor shape [17]
-    late final inputList = List<double>.generate(17 * 100000, (counter) => 0.09);
+    final inputList = List<double>.generate(17, (counter) => 0.4);
 
     final start = DateTime.now();
-    result = nativeCommunicatorService.modelInference(inputList);
+    outputList = nativeCommunicatorService.modelInference(inputList);
     inferenceTimeMs = DateTime.now().difference(start).inMilliseconds;
+
+    print('Inference outputList: ${outputList}');
+
+    assert(listRoughlyEquals(outputList, expectedOutputList));
 
     setState(() {
       loading = false;
@@ -72,7 +77,7 @@ class _HomeScreenState extends State<HomeScreen> {
             Text(loading ? "loading..." : ""),
             Text(loading ? "" : 'It took ${inferenceTimeMs}ms to make inference'),
             const SizedBox(height: 30),
-            Text(loading ? "" : 'Result tensor:\n$result'),
+            Text(loading ? "" : 'Result tensor:\n${outputList}'),
           ],
         ),
       ),

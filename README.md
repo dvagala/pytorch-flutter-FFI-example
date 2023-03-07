@@ -1,6 +1,6 @@
-# pytorch_flutter_ffi_example
+# PyTorch / LibTorch in Flutter through FFI
 
-A new Flutter project.
+
 
 ## Getting Started
 

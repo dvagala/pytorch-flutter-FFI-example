@@ -16,8 +16,9 @@ class CString {
   }
 
   static String getDartString(Pointer<Uint8> cPointer) {
+    // Note that this is little bit sketchy. You need to ensure that cPointer has terminated string with '\0'
     String string = "";
-    for (var i = 0; i < 7; i++) {
+    for (var i = 0; i < 10000000; i++) {
       final char = cPointer.elementAt(i).value;
       if (char == 0) {
         break;
