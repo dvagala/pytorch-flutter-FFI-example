@@ -1,5 +1,7 @@
 # PyTorch / LibTorch in Flutter through FFI
 
+FFI is faster the method channels, and I couldn't find a good example for this so I've made one.
+
 The app is running as it is on Android and iOS. No further dependency needs to be installed. Tested on Flutter 3.3.8
 
 ### Steps I took:
@@ -13,7 +15,7 @@ The app is running as it is on Android and iOS. No further dependency needs to b
 
 The inference is significantly faster through FFI. Moreover, with bigger input tensors, I was getting an `OutOfMemoryError` before, and now with the FFI it's totally fine.
 
-
+```
 The current version of the package:
 Input shape (1, 3, 350, 350) - inference 886ms
 Input shape (1, 3, 700, 700) -  inference 3050ms
@@ -25,5 +27,6 @@ Input shape (1, 3, 350, 350) - inference 250ms
 Input shape (1, 3, 700, 700) -  inference 314ms
 Input shape (1, 3, 2000, 2000) -  inference 580ms
 Input shape (1, 3, 8750, 8750) -  inference 12114ms
+```
 
 (I measured the time to make the model inference from `Dart List`, and get the output to `Dart List`, so the conversions to/from C++ data structures are already included in the measures. Testing ML model was [LDC](https://github.com/xavysp/LDC))
