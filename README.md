@@ -6,7 +6,7 @@ This example app is working as it is on Android and iOS. No further dependency n
 
 ### Steps I took when making this example app:
 1. Create FFI plugin from this [guide](https://docs.flutter.dev/development/platform-integration/android/c-interop)
-2. Android: copied `native_pytorch/libtorch-android` and setup `native_pytorch/CMakeLists.txt` (If anyone wondering, I got the `.so` and header files from the original `.aar` [pytorch package](https://mvnrepository.com/artifact/org.pytorch/pytorch_android/1.13.0), just unzip and taken in the `jni/` and `headers/` )
+2. Android: copied `native_pytorch/libtorch-android` and setup `native_pytorch/android/CMakeLists.txt` (If anyone wondering, I got the `.so` and header files from the original `.aar` [pytorch package](https://mvnrepository.com/artifact/org.pytorch/pytorch_android/1.13.0), just unzip and taken in the `jni/` and `headers/` )
 3. iOS: setup `native_pytorch/ios/native_pytorch.podspec` (note that `s.static_framework = true` is mandatory)
 4. iOS: drag `native_pytorch/ios/Classes/native_pytorch.cpp` to xCode to projects files (on the left side under the runner). Otherwise it say `symbols not found`
 
