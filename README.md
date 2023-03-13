@@ -13,7 +13,7 @@ This example app is working as it is on Android and iOS. No further dependency n
 
 ### Some benchmarks - FFI vs Current version of the flutter_pytorch_mobile package
 
-The inference is significantly faster through FFI. Moreover, with bigger input tensors, I was getting an `OutOfMemoryError` before, and now with the FFI it's totally fine.
+The inference is significantly faster through FFI on Android. Moreover, with bigger input tensors, I was getting an `OutOfMemoryError` before, and now with the FFI it's totally fine.
 
 ```
 The current version of the package:
